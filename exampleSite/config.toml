@@ -14,12 +14,12 @@ canonifyurls = true
 
 [params]
   description = "Leading You To The World Wild"
-  cover = "images/user.jpg"
+  cover = "images/logo_travelexperiencias.svg"
   author = "syui"
   authorlocation = ""
   authorwebsite = "https://syui.cf/hugo-theme-air"
   bio= "my bio"
-  logo = "images/user.png"
+  logo = "images/logo_travelexperiencias.svg"
   googleAnalyticsUserID = ""
   # Optional RSS-Link, if not provided it defaults to the standard index.xml
   RSSLink = ""
