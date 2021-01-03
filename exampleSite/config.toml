@@ -13,7 +13,7 @@ canonifyurls = true
     post = "/post/:year/:month/:day/:slug"
 
 [params]
-  description = "Loading You To  The World Wild"
+  description = "Leading You To The World Wild"
   cover = "images/user.jpg"
   author = "syui"
   authorlocation = ""
