@@ -19,7 +19,7 @@ canonifyurls = true
   authorlocation = ""
   authorwebsite = "https://syui.cf/hugo-theme-air"
   bio= "my bio"
-  logo = "images/logo_travelexperiencias.svg"
+  logo = "images/logo-ARROYO.svg"
   googleAnalyticsUserID = ""
   # Optional RSS-Link, if not provided it defaults to the standard index.xml
   RSSLink = ""
