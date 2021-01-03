@@ -1,6 +1,6 @@
 BaseUrl= "https://syui.cf/hugo-theme-air/"
 LanguageCode= "es"
-Title= "TRAVELEXPERIENCIAS"
+Title= "TRAVEL EXPERIENCIAS                Safaris por Internet"
 paginate = 5
 DisqusShortname = ""
 Copyright = "All rights reserved - 2016"
@@ -13,7 +13,7 @@ canonifyurls = true
     post = "/post/:year/:month/:day/:slug"
 
 [params]
-  description = "SAFARIS POR INTERNET"
+  description = "Loading You To  The African Wild"
   cover = "images/user.jpg"
   author = "syui"
   authorlocation = ""
