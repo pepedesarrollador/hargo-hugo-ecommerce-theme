@@ -1,33 +1,60 @@
-{{ define "main" }}
+{{ partial "header.html" . }}
+{{ $baseurl := .Site.BaseURL }}
 
-{{ partial "page-title.html" . }}
+{{if .Params.cover}}
+	<header class="main-header" style="background-image: url({{ $baseurl }}{{.Params.cover}})">
+{{else if .Site.Params.cover}}
+	<header class="main-header" style="background-image: url({{ $baseurl }}{{.Site.Params.cover}})">
+{{else}}
+	<header class="main-header tag-head no-cover">
+{{end}}
+    <nav class="main-nav overlay clearfix">
+      {{ if .Site.Params.logo }}
+        <a class="blog-logo" href="{{.Site.BaseURL}}"><img src="{{.Site.BaseURL}}{{ .Site.Params.logo }}" alt="Home" /></a>
+      {{end}}
+      {{ if .Site.Menus.main }}
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      {{else}}
+        {{ if .Site.Params.RSSLink}}
+          <a class="menu-button icon-feed" href="{{.Site.Params.RSSLink }}">&nbsp;&nbsp;Subscribe</a>
+        {{else}}
+          <a class="menu-button icon-feed" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}">&nbsp;&nbsp;Subscribe</a>
+        {{end}}
+      {{end}}
+    </nav>
+    <div class="vertical">
 
-<section class="section pt-0">
-  <div class="container">
-    <div class="row">
-      {{ $paginator := .Paginate .Data.Pages }}
-      {{ range $paginator.Pages }}
-      <div class="col-lg-8 mx-auto mb-5">
-        <article class="card rounded-0 border-0">
-          <img src="{{ .Params.Image | absURL }}" alt="{{ .Title | markdownify }}" class="card-img-top rounded-top-0">
-          <div class="card-body px-0">
-            <a href="{{ .Permalink }}" class="h4 d-block">{{ .Title | markdownify }}</a>
-            <ul class="list-inline">
-              <li class="list-inline-item"><i class="ti-pencil-alt text-primary mr-2"></i> By {{ .Params.Author }}</li>
-              <li class="list-inline-item"><i class="ti-calendar text-primary mr-2"></i>
-                {{ .PublishDate.Format "02 Jan, 2006" }}</li>
-            </ul>
-            <p>{{ .Summary }}</p>
-            <a href="{{ .Permalink }}" class="btn btn-sm btn-outline-primary">Read More</a>
-          </div>
-        </article>
-      </div>
-      {{ end }}
-    </div>
-    {{ template "_internal/pagination.html" . }}
-  </div>
-</section>
+        <div class="main-header-content inner">
+            <h1 class="page-title">
 
-{{ partial "cta.html" . }}
+              <a class="btn-bootstrap-2" href="#content">{{ .Site.Title }}</a>
+          </h1>
+        </div>
+</div>
+    <a class="scroll-down icon-arrow-left" href="#content"><span class="hidden">Scroll Down</span></a>
+</header>
 
-{{ end }}
+<main id="content" class="content" role="main">
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}
+    {{ $pages = .Site.RegularPages }}
+    {{ end }}
+    {{ $paginator := .Paginate $pages }}
+    <!--
+    {{ $paginator := .Paginator }}
+    -->
+
+	<div class="extra-pagination inner">
+    {{ partial "pagination.html" $paginator }}
+	</div>
+
+	{{ range $index, $page := $paginator.Pages }}
+	   {{ .Render "li" }}
+	{{ end }}
+
+	{{ partial "pagination.html" $paginator }}
+</main>
+
+
+
+{{ partial "footer.html" . }}

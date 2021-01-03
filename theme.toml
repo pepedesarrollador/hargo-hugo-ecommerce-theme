@@ -1,15 +1,17 @@
-# theme.toml template for a Hugo theme
-# See https://github.com/gohugoio/hugoThemes#themetoml for an example
-
-name = "Hargo Hugo E-Commerce Theme"
+name = "Air"
 license = "MIT"
-licenselink = "https://github.com/themefisher/Hargo-hugo-ecommerce-theme/blob/master/LICENSE"
-description = "Hargo, An E-commerce theme powered by hugo"
-homepage = "https://gethugothemes.com/products/hargo/"
-tags = ["Ecommerce", "bootstrap", "blog", "contact", "responsive", "gethugothemes", "clean" , "Single Product", "Minimal", "light", "google analytics", "disqus", "mobile", "fast", "customizable", "white", "flex", "pages", "hugo themes", "hugo templates", "netlify", "Themefisher"]
-features = ["Ecommerce", "responsive", "bootstrap-4"]
-min_version = "0.64.0 extended"
+licenselink = "https://github.com/syui/hugo-theme-air/blob/master/LICENSE.md"
+description = "Casper theme from Ghost Foundation, Plus particles.js"
+homepage = "https://syui.github.io/hugo-theme-air"
+tags = ["blog"]
+features = ["disqus", "google analytics","share"]
+min_version=0.14
 
 [author]
-  name = "Themefisher"
-  homepage = "https://themefisher.com"
+  name = "syui"
+  homepage = "https://syui.github.io"
+
+[original]
+  name = "hugo-theme-casper"
+  homepage = "http://vjeantet.fr/"
+  repo = "https://github.com/vjeantet/hugo-theme-casper"

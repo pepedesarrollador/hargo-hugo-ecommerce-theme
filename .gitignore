@@ -1,10 +1,6 @@
-Thumbs.db
+tmp
 .DS_Store
-.dist
-.tmp
-.sass-cache
-npm-debug.log
-node_modules
-builds
-package-lock.json
- 
+public
+
+gh-pages
+gh-pages.pub

@@ -1,66 +1,197 @@
-<div align="center">
-<h1><a href="https://gethugothemes.com/products/hargo/">Hargo</a></h1>
-<img src="https://user-images.githubusercontent.com/37659754/67154529-96242e00-f31f-11e9-9718-42382476e405.gif" alt="screenshot" width="100%">
-</div>
+# AIR theme for hugo
 
-Hargo is a fully responsive and stunning Single Product E-Commerce Template first time in Hugo ecosystem. It has a lot's of Unique and essential features for making a full functional E-commerce website. It's design is very minimal and clean only focus on product presentation. It's Coding structure is W3valid so you can customize as your requirement without any hassle. This theme is very SEO friendly and Powered by Hugo, so super fast Loading Speed in it's DNA.
+Air is a single-column theme for [Hugo](http://gohugo.io/).
+Ported from [Casper theme for Ghost ](https://github.com/TryGhost/Casper), [vjeantet/hugo-theme-casper](https://github.com/vjeantet/hugo-theme-casper)
 
-**The images are only for demonstration purpose, Please don't use those images.**
+- github actions
 
-## Table of Contents
+- blog demo : http://syui.github.io/hugo-theme-air
 
-- [Demo](#demo)
-- [Installation](#installation)
-- [Main Features](#main-features)
-- [Reporting Issues](#reporting-issues)
-- [Technical Support or Questions](#technical-support-or-questions-(paid))
-- [More Hugo Themes](https://gethugothemes.com/shop/)
+- blog source : https://github.com/syui/hugo-theme-air
 
-## Demo
+![Hugo Air Theme screenshot](https://raw.githubusercontent.com/syui/hugo-theme-air/master/images/screen.gif)
 
-| Products  | FAQ  | Blog  | Contact  |
-|---|---|---|---|
-| ![products](https://user-images.githubusercontent.com/37659754/67154818-18165600-f324-11e9-8ac5-980c1ad1a151.png) | ![faq](https://user-images.githubusercontent.com/37659754/67154832-35e3bb00-f324-11e9-9b8f-3cc8d7fe3f97.png) | ![blog](https://user-images.githubusercontent.com/37659754/67154837-485df480-f324-11e9-8792-128fc4b14632.png) | ![contact](https://user-images.githubusercontent.com/37659754/67154841-5ad82e00-f324-11e9-8c00-5b6f1127c643.png) |
+```bash
+$ git clone https://github.com/syui/hugo-theme-air
 
-[Live Demo](http://demo.themefisher.com/hargo-hugo/)
+$ cd hugo-theme-air
 
-## Installation
+$ hugo
 
-Navigate to your themes folder in your Hugo site and use the following commands:
+$ hugo server
+---------------------------------
+$ curl 127.0.0.1:1313/hugo-theme-air 
+```
+## Background Image
 
-**Note : You must use `hugo-extended` version to compile SCSS**
+[https://github.com/syui/hugo-theme-air/blob/master/static/css/screen.css#L1995](https://github.com/syui/hugo-theme-air/blob/master/static/css/screen.css#L1995)
+
+...`slow`
+
+## Features
+
+* [VincentGarreau/particles.js](https://github.com/VincentGarreau/particles.js/)
+* Google Analytics (optional)
+* Disqus ( can disable comments by content)
+* Share buttons on Facebook, Twitter, Google (can disable share by content)
+* Big cover image (optional)
+* Custom cover by content (optional)
+* Tagging
+* Pagination
+* Menu
+
+# Theme usage and asumptions
+* All blog posts are in the ```post``` folder (```content/post```)
+* The homepage displays a paginated list of contents from the post Section (other contents may be added to main menu, see bellow)
+
+# Installation
+
+## Installing this theme
+
+    mkdir themes
+    cd themes
+    git clone https://github.com/syui/hugo-theme-air
+
+## Build your website with this theme
+
+    hugo server -t hugo-theme-air
+
+# Configuration
+
+**config.toml**
+
+``` bash
+$ cat config.toml
+```
+
+Example : [config.toml](https://github.com/syui/hugo-theme-air/blob/master/config.toml)
+
+## Multiple authors configuration
+
+In addition to providing data for a single author as shown in the example above, multiple authors
+can be configured via data/authors/\*.(yml, toml, json) entries. If the key provided in
+.Site.Params.author matched a data/authors/\* entry, it will be used as the default. Overrides
+per page can be done by a simple author = other_author_key entry in the front matter. For those
+pages where you want to omit the author block completely, a .Params.noauthor entry is also
+available.
+
+``` bash
+$ hugo new post/foo.md
+
+$ cat content/post/foo.md
+```
+
+Example author definition file:
+
+
+``` yml
+name: John Doe
+bio: The most uninteresting man in the world.
+location: Normal, IL
+website: http://example.com
 
 ```
-$ mkdir themes
-$ cd themes
-$ git clone git@github.com:themefisher/hargo.git
+
+Example override author per page file:
+``` toml
++++
+author = ""
+date = "2014-07-11T10:54:24+02:00"
+title = ""
+...
++++
+
+Contents here
+
 ```
-Or Check out [Full Documentation](https://docs.gethugothemes.com/hargo/?ref=github).
 
-## Main features
+## Metadata on each content file, example
 
-- Bootstrap 4 Powered
-- Google Analytics
-- SEO Friendly
-- E-commerce Template
-- Contact Page , Faq Page
-- Responsive Ready
-- Snipcart Added
+``` toml
++++
+author = ""
+date = "2014-07-11T10:54:24+02:00"
+draft = false
+title = "dotScale 2014 as a sketch"
+slug = "dotscale-2014-as-a-sketch"
+tags = ["event","dotScale","sketchnote"]
+image = "images/2014/Jul/titledotscale.png"
+comments = true     # set false to hide Disqus comments
+share = true        # set false to share buttons
+menu = ""           # set "main" to add this content to the main menu
++++
 
-## Reporting Issues
+Contents here
+```
 
-We use GitHub Issues as the official bug tracker for the Navigator Template. Please Search [existing issues](https://github.com/themefisher/hargo/issues). It’s possible someone has already reported the same problem.
-If your problem or idea is not addressed yet, [open a new issue](https://github.com/themefisher/hargo/issues)
+## Create new content based with default metadata from this theme
+You can easyly create a new content with all metadatas used by this theme, using this command 
+```
+hugo new -t hugo-theme-air post/my-post.md
+```
+## Hosting for GitHub Pages
 
-## Technical Support or Questions (Paid)
+```bash
+# build
+$ hugo 
 
-If you have questions or need help integrating the product please [contact us](mailto:mehedi@themefisher.com) instead of opening an issue.  
+$ cd public
 
-## Hire Us
-We are available for Hiring of your next HUGO project. Drop Us a mail [mehedi@themefisher.com](mailto:mehedi@themefisher.com)
+# preview
+$ jekyll server
+$ rm -rf _site
 
-## Premium Themes
+# make repository
+$ git init
+$ git remote add origin $url
+$ git add .
+$ git commit -m "first commit"
+$ git push -u origin master
 
-| [![Mega-Bundle-HUGO](https://gethugothemes.com/wp-content/uploads/edd/2019/09/Mega-Bundle-HUGO.png)](https://themefisher.com/products/hugo-mega-bundle/) | [![Adrian](https://gethugothemes.com/wp-content/uploads/edd/2019/12/adrian-ecommerce-template.jpg)](https://gethugothemes.com/products/adrian/) | [![influencer](https://gethugothemes.com/wp-content/uploads/2019/11/Influencer.png)](https://gethugothemes.com/products/influencer-hugo/) |
-|:---:|:---:|:---:|
-| **Hugo Mega Bundle**  | **Adrian**  | **Influencer**  |
+# push branch:gh-pages
+$ git checkout -b gh-pages
+$ git commit -m "open pages"
+$ git push -u origin gh-pages
+
+# open
+$ curl user.github.io/repository
+```
+
+## change logo
+
+Replace `static/images/user.png` with myfile.
+
+Please close the browser and rerun hugo server.
+
+point :`BaseUrl`, `authorwebsite` last slash `/`
+
+```toml
+BaseUrl= "https://localhost/"
+
+[params]
+  authorwebsite = "https://localhost"
+  logo = "images/user.png"
+```
+
+## content title sort
+
+rewrite `layout/index.html`
+
+```html
+{{ range $index, $page := $paginator.Pages }}
+  {{ .Render "li" }}
+{{ end }}
+```
+
+```html
+{{ range .Site.RegularPages.ByTitle }}
+  {{ .Render "li"}}
+{{ end }}
+```
+
+# Contact me
+
+:beetle: open an issue in github
+
+:bird: [https://twitter.com/syui__](https://twitter.com/syui__)
+
